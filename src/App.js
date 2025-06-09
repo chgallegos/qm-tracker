@@ -9,6 +9,7 @@ function App() {
     const time = new Date().toLocaleTimeString();
     setLog(prev => [...prev, `${time} — ${action}`]);
   };
+  
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
@@ -33,14 +34,31 @@ function App() {
         />
       </div>
 
-      <div className="log-box">
-        <h2>📋 Event Log</h2>
-        <ul>
-          {log.slice().reverse().map((entry, idx) => (
-            <li key={idx}>{entry}</li>
-          ))}
-        </ul>
-      </div>
+     <div className="log-box">
+  <div className="log-header">
+    <h2>📋 Event Log</h2>
+    {log.length > 0 && (
+     <button
+  className="clear-btn"
+  onClick={() => {
+    const confirmClear = window.confirm("Are you sure you want to clear the log?");
+    if (confirmClear) {
+      setLog([]);
+    }
+  }}
+>
+  🗑️ Clear Log
+</button>
+
+    )}
+  </div>
+  <ul>
+    {log.slice().reverse().map((entry, idx) => (
+      <li key={idx}>{entry}</li>
+    ))}
+  </ul>
+</div>
+
     </div>
   );
 }

@@ -107,3 +107,33 @@ body.dark {
   background: #121212;
   color: #f0f0f0;
 }
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear-btn {
+  background: transparent;
+  border: 1px solid #999;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #666;
+  transition: background 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: #f1f1f1;
+}
+
+.container.dark .clear-btn {
+  border-color: #ccc;
+  color: #ccc;
+}
+
+.container.dark .clear-btn:hover {
+  background: #333;
+}
