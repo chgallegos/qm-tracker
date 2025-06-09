@@ -7,10 +7,10 @@ function App() {
 
   const handleClick = (action) => {
     const time = new Date().toLocaleTimeString();
-    const logEntry = `${time} — ${action}`;
+    const logEntry = `${time} - ${action}`; // Use standard hyphen
     setLog(prev => [...prev, logEntry]);
 
-    // Simulate sending event data to an API
+    // Simulated event tracking request
     fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'POST',
       body: JSON.stringify({ event: action, timestamp: time }),
@@ -27,8 +27,9 @@ function App() {
   const handleExportCSV = () => {
     if (log.length === 0) return;
 
-    const csvContent = 'data:text/csv;charset=utf-8,' +
-      log.map((entry, idx) => `${idx + 1},${entry}`).join('\n');
+    const header = 'Index,Timestamp and Event';
+    const rows = log.map((entry, idx) => `${idx + 1},"${entry}"`);
+    const csvContent = 'data:text/csv;charset=utf-8,' + [header, ...rows].join('\n');
 
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
