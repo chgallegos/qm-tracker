@@ -27,8 +27,8 @@ function App() {
   const handleExportCSV = () => {
     if (log.length === 0) return;
 
-    const header = 'Index,Timestamp and Event';
-    const rows = log.map((entry, idx) => `${idx + 1},"${entry}"`);
+    const header = 'Index,Timestamp, Event';
+    const rows = log.map((entry, idx) => `${idx + 1},"${entry.time}","${entry.event}"`);
     const csvContent = 'data:text/csv;charset=utf-8,' + [header, ...rows].join('\n');
 
     const encodedUri = encodeURI(csvContent);
