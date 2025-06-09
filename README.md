@@ -27,20 +27,10 @@ QM Tracker is a lightweight React application that tracks user interactions such
 
 ---
 
-## Setup
+## Upcoming Improvements
 
-To run the app locally:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/qm-tracker.git
-cd qm-tracker
-npm install
-npm start
-
----
-
-## To build the Prod version
-
-npm run build
-npx serve -s build
-
+- CSV export functionality
+- Total event counter
+- Timestamp filtering
+- LocalStorage persistence
+- Visualizations (click frequency over time)
